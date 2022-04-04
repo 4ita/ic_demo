@@ -1,0 +1,24 @@
+type NewItem = 
+ record {
+   amount: nat;
+   category: text;
+   content: text;
+   date: text;
+ };
+type ItemId__1 = nat;
+type ItemId = nat;
+type Item = 
+ record {
+   amount: nat;
+   category: text;
+   content: text;
+   date: text;
+   id: ItemId__1;
+ };
+service : {
+  delete: (ItemId, Item) -> ();
+  getItem: (ItemId) -> (opt Item) query;
+  length: () -> (nat) query;
+  new: (NewItem) -> ();
+  update: (ItemId, Item) -> ();
+}
